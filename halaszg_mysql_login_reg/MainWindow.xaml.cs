@@ -24,5 +24,12 @@ namespace halaszg_mysql_login_reg
         {
             InitializeComponent();
         }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUser.Text;
+            string password = txtPass.Password;
+            
+        }
     }
 }
