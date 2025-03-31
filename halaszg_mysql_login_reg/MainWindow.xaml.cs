@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,39 @@ namespace halaszg_mysql_login_reg
     /// </summary>
     public partial class MainWindow : Window
     {
+        //kapcsolati string
+        MySqlConnection connect = new MySqlConnection("server = localhost;database = asztali_11a;uid = root;password = '';");
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
-            string username = txtUser.Text;
-            string password = txtPass.Password;
+            //kapcsolat megnyitása
+            connect.Open();
+            //parancs létrehozása
+            var sql = $"SELECT * FROM user WHERE nev = '{txtUser.Text}' AND jelszo = '{txtPass.Password}'";
+            lbDebug.Content = sql;
+            MySqlCommand cmd = new MySqlCommand(sql, connect);
+            //parancs végrehajtása
+            var reader = cmd.ExecuteReader();
+            //ha van ilyen felhasználó
+            if (reader.Read())
+            {
+                MessageBox.Show("Sikeres bejelentkezés");
+            }
+            else
+            {
+                MessageBox.Show("Sikertelen bejelentkezés");
+            }
+            connect.Close();
+
+        }
+
+        private void register_Click(object sender, RoutedEventArgs e)
+        {
             
         }
     }

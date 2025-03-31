@@ -10,8 +10,16 @@
         <Label Content="Username:" HorizontalAlignment="Left" Margin="97,59,0,0" VerticalAlignment="Top" Width="70"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="97,102,0,0" VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="txtUser" HorizontalAlignment="Left" Margin="173,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="login" Content="login" HorizontalAlignment="Left" Margin="155,149,0,0" VerticalAlignment="Top" Width="41" Click="login_Click"/>
+        <Button x:Name="login" Content="login" HorizontalAlignment="Left" Margin="164,154,0,0" VerticalAlignment="Top" Width="41" Click="login_Click"/>
         <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="173,106,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lbDebug" Content="" HorizontalAlignment="Left" Margin="30,236,0,0" VerticalAlignment="Top" Width="643"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="352,59,0,0" VerticalAlignment="Top" Width="70"/>
+        <PasswordBox x:Name="reg_pass" HorizontalAlignment="Left" Margin="434,106,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="352,102,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Password again:" HorizontalAlignment="Left" Margin="327,150,0,0" VerticalAlignment="Top" Width="95"/>
+        <PasswordBox x:Name="reg_passAgain" HorizontalAlignment="Left" Margin="434,154,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="reg_user" HorizontalAlignment="Left" Margin="434,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="register" Content="register" HorizontalAlignment="Left" Margin="474,197,0,0" VerticalAlignment="Top" Click="register_Click"/>
 
     </Grid>
 </Window>
