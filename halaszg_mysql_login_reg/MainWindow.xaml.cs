@@ -141,7 +141,21 @@ namespace halaszg_mysql_login_reg
         {
             if (deleteSure.IsChecked == true)
             {
-
+                var user = lb.SelectedItem;
+                //felhasználó törlése
+                connect.Open();
+                var sql = $"DELETE FROM halaszg_user WHERE nev = '{user}'";
+                lbDebug.Content = sql;
+                new MySqlCommand(sql, connect).ExecuteNonQuery();
+                MessageBox.Show("Sikeres törlés");
+                connect.Close();
+                //listbox újratöltése
+                lb.Items.Clear();
+                lbKiir();
+            }
+            else
+            {
+                MessageBox.Show("Kérlek pipáld be a törlés megerősítését.");
             }
         }
     }
