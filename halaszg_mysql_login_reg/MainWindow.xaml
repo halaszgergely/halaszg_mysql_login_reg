@@ -7,19 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="97,59,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="97,102,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Margin="173,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="login" Content="login" HorizontalAlignment="Left" Margin="164,154,0,0" VerticalAlignment="Top" Width="41" Click="login_Click"/>
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="173,106,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lbDebug" Content="" HorizontalAlignment="Left" Margin="30,236,0,0" VerticalAlignment="Top" Width="643"/>
-        <Label Content="Username:" HorizontalAlignment="Left" Margin="352,59,0,0" VerticalAlignment="Top" Width="70"/>
-        <PasswordBox x:Name="reg_pass" HorizontalAlignment="Left" Margin="434,106,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="352,102,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Password again:" HorizontalAlignment="Left" Margin="327,150,0,0" VerticalAlignment="Top" Width="95"/>
-        <PasswordBox x:Name="reg_passAgain" HorizontalAlignment="Left" Margin="434,154,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="reg_user" HorizontalAlignment="Left" Margin="434,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="register" Content="register" HorizontalAlignment="Left" Margin="474,197,0,0" VerticalAlignment="Top" Click="register_Click"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="57,52,0,0" VerticalAlignment="Top" Width="70" BorderThickness="3,3,3,0"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,95,0,0" VerticalAlignment="Top" Width="70" BorderThickness="3,3,3,0"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Margin="133,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderThickness="3,3,3,1"/>
+        <Button x:Name="login" Content="login" HorizontalAlignment="Left" Margin="124,147,0,0" VerticalAlignment="Top" Width="41" Click="login_Click" BorderThickness="3,3,3,1"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Margin="133,99,0,0" VerticalAlignment="Top" Width="120" BorderThickness="3,3,3,1"/>
+        <Border HorizontalAlignment="Left" Height="166" Margin="26,236,0,0" VerticalAlignment="Top" Width="647">
+            <Border BorderThickness="3,0,3,0">
+                <Grid>
+                    <Label x:Name="lbDebug" Content="" HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Width="643"/>
+                    <Label Content="Username:" HorizontalAlignment="Left" Margin="25,8,0,0" VerticalAlignment="Top" Width="70"/>
+                    <PasswordBox x:Name="reg_pass" HorizontalAlignment="Left" Margin="107,55,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Password:" HorizontalAlignment="Left" Margin="25,51,0,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Password again:" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="95"/>
+                    <PasswordBox x:Name="reg_passAgain" HorizontalAlignment="Left" Margin="107,103,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="reg_user" HorizontalAlignment="Left" Margin="107,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="register" Content="register" HorizontalAlignment="Left" Margin="147,146,0,0" VerticalAlignment="Top" Click="register_Click"/>
+                </Grid>
+            </Border>
+        </Border>
+        <ListBox x:Name="lb"  Margin="298,14,353,42"/>
+        <PasswordBox x:Name="changePassCurrent" HorizontalAlignment="Left" Margin="624,38,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="changePassAgain" HorizontalAlignment="Left" Margin="624,104,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="changePass" HorizontalAlignment="Left" Margin="624,72,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Régi jelszó:" HorizontalAlignment="Left" Margin="548,33,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Új jelszó újra:" HorizontalAlignment="Left" Margin="542,99,0,0" VerticalAlignment="Top" Height="27"/>
+        <Label Content="Új jelszó:" HorizontalAlignment="Left" Margin="554,65,0,0" VerticalAlignment="Top" Height="27"/>
+        <CheckBox x:Name="deleteSure" Content="Biztosan törölni akarja?" HorizontalAlignment="Left" Margin="605,224,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="change" Content="Módosít" HorizontalAlignment="Left" Margin="660,137,0,0" VerticalAlignment="Top" Click="change_Click"/>
+        <Button x:Name="delete" Content="töröl" HorizontalAlignment="Left" Margin="656,255,0,0" VerticalAlignment="Top" Click="delete_Click"/>
 
     </Grid>
 </Window>

@@ -26,7 +26,23 @@ namespace halaszg_mysql_login_reg
         public MainWindow()
         {
             InitializeComponent();
+            lbKiir();
+        }
 
+        private void lbKiir()
+        {
+            //listbox feltöltése a felhasználókkal
+            connect.Open();
+            var sql = "SELECT * FROM halaszg_user";
+            MySqlCommand cmd = new MySqlCommand(sql, connect);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                //listbox feltöltése
+                lb.Items.Add(reader["nev"].ToString());
+            }
+            reader.Close();
+            connect.Close();
         }
 
         private void login_Click(object sender, RoutedEventArgs e)
@@ -66,7 +82,6 @@ namespace halaszg_mysql_login_reg
             if (reader.Read())
             {
                 MessageBox.Show("Ez a felhasználónév már létezik");
-                return;
             }
             else
             {
@@ -78,6 +93,56 @@ namespace halaszg_mysql_login_reg
                 MessageBox.Show("Sikeres regisztráció");
             }
             connect.Close();
+        }
+
+        private void change_Click(object sender, RoutedEventArgs e)
+        {
+            //kiválasztott felhasználó jelszavának megváltoztatása
+            if (lb.SelectedItem != null)
+            {
+                //jelszó ellenőrzése
+                connect.Open();
+                var sql = $"SELECT * FROM halaszg_user WHERE nev = '{lb.SelectedItem}' AND jelszo = '{changePassCurrent.Password}'";
+                lbDebug.Content = sql;
+                MySqlCommand cmd = new MySqlCommand(sql, connect);
+                //parancs végrehajtása
+                var reader = cmd.ExecuteReader();
+                //ha van ilyen felhasználó
+                if (reader.Read())
+                {
+                    if(changePass.Password == changePassAgain.Password)
+                    {
+                        reader.Close();
+                        //jelszó megváltoztatása
+                        sql = $"UPDATE halaszg_user SET jelszo = '{changePass.Password}' WHERE nev = '{lb.SelectedItem}';";
+                        lbDebug.Content = sql;
+                        new MySqlCommand(sql, connect).ExecuteNonQuery();
+                        MessageBox.Show("Sikeres jelszóváltoztatás");
+                    }
+                    else
+                    {
+                        MessageBox.Show("A két jelszó nem egyezik");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Rossz a jelenlegi jelszó.");
+                }
+                connect.Close();
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("Nincs kiválasztott felhasználó");
+            }
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (deleteSure.IsChecked == true)
+            {
+
+            }
         }
     }
 }
